@@ -1,7 +1,7 @@
 import type React from "react";
+
 import Button from "@ui/Button";
 import Item from "@ui/Item";
-import Testimonial from "@ui/Testimonial";
 import Menu from "@ui/Menu";
 import Testimonials from "@ui/Testimonials";
 

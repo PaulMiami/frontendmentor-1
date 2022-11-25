@@ -15,8 +15,9 @@ export default function Button(props: Props) {
       className={clsx(
         "p-3 px-6 pt-2 rounded-full baseline shadow-2xl",
         !props.showOnMobile && "hidden md:block",
-        props.inverseColor && "text-brightRed bg-white hover:bg-gray-900",
-        !props.inverseColor && "text-white bg-brightRed hover:bg-brightRedLight"
+        props.inverseColor
+          ? "text-brightRed bg-white hover:bg-gray-900"
+          : "text-white bg-brightRed hover:bg-brightRedLight"
       )}
     >
       {props.name}

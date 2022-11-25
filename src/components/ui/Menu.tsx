@@ -1,17 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import clsx from "clsx";
+
 import Button from "./Button";
-import { MouseEvent } from "react";
+
+const menuItem = ["Pricing", "Product", "About", "Careers", "Community"];
 
 export default function Menu() {
-  const hamburgerClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.currentTarget.classList.toggle("open");
+  const [isOpen, setIsOpen] = useState(false);
 
-    const menu = document.getElementById("menu");
-    menu?.classList.toggle("flex");
-    menu?.classList.toggle("hidden");
-  };
+  const hamburgerLineClass =
+    "h-0.5 w-6 my-0.5 bg-black transition ease transform duration-300";
 
   return (
     <nav className="relative container mx-auto p-6">
@@ -20,45 +20,52 @@ export default function Menu() {
           <img src="images/logo.svg" alt="logo" />
         </div>
         <div className="hidden md:flex space-x-6">
-          <a href={"#"} className="hover:text-darkGrayishBlue">
-            Pricing
-          </a>
-          <a href={"#"} className="hover:text-darkGrayishBlue">
-            Product
-          </a>
-          <a href={"#"} className="hover:text-darkGrayishBlue">
-            About
-          </a>
-          <a href={"#"} className="hover:text-darkGrayishBlue">
-            Careers
-          </a>
-          <a href={"#"} className="hover:text-darkGrayishBlue">
-            Community
-          </a>
+          {menuItem.map((m) => (
+            <a href={"#"} key={m} className="hover:text-darkGrayishBlue">
+              {m}
+            </a>
+          ))}
         </div>
         <Button name="Get Started"></Button>
         {/* hamburger icon */}
         <button
           id="menu-btn"
-          className="block hamburger md:hidden focus:outline-none"
-          onClick={hamburgerClick}
+          className="h-6 w-6  flex flex-col justify-center items-center group md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Menu"
         >
-          <span className="hamburger-top"></span>
-          <span className="hamburger-middle"></span>
-          <span className="hamburger-bottom"></span>
+          <div
+            className={clsx(
+              hamburgerLineClass,
+              isOpen && "rotate-45 translate-y-1.5"
+            )}
+          ></div>
+          <div
+            className={clsx(hamburgerLineClass, isOpen && "opacity-0")}
+          ></div>
+          <div
+            className={clsx(
+              hamburgerLineClass,
+              isOpen && "-rotate-45 -translate-y-1.5"
+            )}
+          ></div>
         </button>
       </div>
       {/* mobile menu */}
       <div className="md:hidden">
         <div
           id="menu"
-          className="absolute flex-col items-center self-end hidden py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+          className={clsx(
+            "absolute flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md",
+            isOpen && "flex",
+            !isOpen && "hidden"
+          )}
         >
-          <a href="#">Pricing</a>
-          <a href="#">Product</a>
-          <a href="#">About</a>
-          <a href="#">Careers</a>
-          <a href="#">Community</a>
+          {menuItem.map((m) => (
+            <a href="#" key={m}>
+              {m}
+            </a>
+          ))}
         </div>
       </div>
     </nav>
