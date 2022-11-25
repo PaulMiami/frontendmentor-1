@@ -6,12 +6,13 @@ body {
     background-image: url("../../public/images/bg-tablet-pattern.svg");
     background-repeat: no-repeat;
     background-size: 800px;
-    background-position: 90% -25%;
+    background-position: 125% -20%;
 }
 
 #callToAction {
     background-image: url("../../public/images/bg-simplify-section-desktop.svg");
     background-repeat: no-repeat;
+    background-position: 0 50px;
 }
 
 @media(max-width: 576px) {

@@ -11,17 +11,21 @@ export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
 
   const hamburgerLineClass =
-    "h-0.5 w-6 my-0.5 bg-black transition ease transform duration-300";
+    "h-1 w-6 my-0.5 bg-black transition ease transform duration-300";
 
   return (
     <nav className="relative container mx-auto p-6">
       <div className="flex items-center justify-between">
         <div className="pt-2">
-          <img src="images/logo.svg" alt="logo" />
+          <img src="images/logo.svg" className="h-5" alt="logo" />
         </div>
         <div className="hidden md:flex space-x-6">
           {menuItem.map((m) => (
-            <a href={"#"} key={m} className="hover:text-darkGrayishBlue">
+            <a
+              href={"#"}
+              key={m}
+              className="hover:text-darkGrayishBlue text-darkBlue font-medium"
+            >
               {m}
             </a>
           ))}
@@ -37,7 +41,7 @@ export default function Menu() {
           <div
             className={clsx(
               hamburgerLineClass,
-              isOpen && "rotate-45 translate-y-1.5"
+              isOpen && "rotate-45 translate-y-2"
             )}
           ></div>
           <div
@@ -46,7 +50,7 @@ export default function Menu() {
           <div
             className={clsx(
               hamburgerLineClass,
-              isOpen && "-rotate-45 -translate-y-1.5"
+              isOpen && "-rotate-45 -translate-y-2"
             )}
           ></div>
         </button>

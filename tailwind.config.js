@@ -1,3 +1,4 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,7 +8,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: "480px",
+      sm: "375",
       md: "786px",
       lg: "976px",
       xl: "1440ps",
@@ -22,6 +23,9 @@ module.exports = {
         veryDarkBlue: "hsl(233, 12%, 13%)",
         veryPaleRed: "hsl(13, 100%, 96%)",
         veryLightGray: "hsl(0, 0%, 98%)",
+      },
+      fontFamily: {
+        sans: ["var(--font-be-vietnam-pro)", ...fontFamily.sans],
       },
     },
   },

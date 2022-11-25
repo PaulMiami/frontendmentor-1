@@ -6,6 +6,7 @@ interface Props {
   name: string;
   showOnMobile?: boolean;
   inverseColor?: boolean;
+  noShaddow?: boolean;
 }
 
 export default function Button(props: Props) {
@@ -17,7 +18,8 @@ export default function Button(props: Props) {
         !props.showOnMobile && "hidden md:block",
         props.inverseColor
           ? "text-brightRed bg-white hover:bg-gray-900"
-          : "text-white bg-brightRed hover:bg-brightRedLight"
+          : "text-white bg-brightRed hover:bg-brightRedLight",
+        !props.noShaddow && "shadow-brightRed shadow-lg"
       )}
     >
       {props.name}

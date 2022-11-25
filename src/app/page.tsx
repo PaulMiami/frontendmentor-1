@@ -13,7 +13,7 @@ export default function Home() {
         <div className="container flex flex-col-reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
           <div className="flex flex-col mb-32 space-y-12 md:w-1/2">
             <h1 className="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
-              Bring everyone together to build better products
+              Bring everyone together to build better products.
             </h1>
             <p className="max-w-sm text-center text-darkGrayishBlue md:text-left">
               Manage makes it simple for sotfware teams to plan day-to-day tasks
@@ -93,7 +93,7 @@ export default function Home() {
           {/* logo, socials */}
 
           <div className="flex flex-col-reverse items-center justify-between space-y-12 md:flex-col md:space-y-0 md:items-start">
-            <div className="mx-auto my text-center text-white md:items-start md:hidden">
+            <div className="mx-auto my text-center text-darkGrayishBlue text-sm md:items-start pt-16 md:hidden">
               Copyright &copy; 2020. All Rights Reserved
             </div>
             <div>
@@ -155,7 +155,7 @@ export default function Home() {
                   className="flex-1 px-4 rounded-full focus:outline-none"
                   placeholder="Updated in your inbox"
                 />
-                <Button name="Go" showOnMobile={true}></Button>
+                <Button name="Go" showOnMobile={true} noShaddow={true}></Button>
               </div>
             </form>
             <div className="hidden text-white md:block">
