@@ -1,11 +1,12 @@
 import "./globals.css";
 import React from "react";
 
-import { Inter } from "@next/font/google";
+import { Be_Vietnam_Pro } from "@next/font/google";
 
-const inter = Inter({
+const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
   variable: "--font-be-vietnam-pro",
+  weight: "400",
 });
 
 export default function RootLayout({
@@ -20,7 +21,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className={`${inter.variable} font-sans`}>{children}</body>
+      <body className={`${beVietnamPro.variable} font-sans`}>{children}</body>
     </html>
   );
 }
